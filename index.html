@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            line-height: 150%;
+        }
+        
+        h1 {
+            font-size: 300%;
+            margin: 50px 0px 50px 0px;
+        }
+        
+        p {
+            margin: 20px 0px 20px 0px;
+        }
+        
+        textarea {
+            margin: 5px 0px 5px 0px;
+        	height: 100px;
+            width: 600px;
+        	border: 2px solid #cccccc;
+        	padding: 5px;
+        }
+        
+        button {
+            margin: 20px 0px 0px 0px;
+            height: 30px;
+            width: 100px;
+        }
+        
+        img {
+            border: none;
+        }
+    </style>
+    <title>Qrririzer</title>
+</head>
+<body>
+    <h1>Qrririzer</h1>
+    
+    <p>Tired of emailing websites to your phone?<br/>Use <strong>Qrririzer!</strong></p>
+    <p>Type in the text you want to Qrririze in the box below, then click the "Qrririze!" button.</p>
+    
+    <textarea id="in"></textarea>
+    
+    <div><button id="do">Qrririze!</button></div>
+    
+    <!-- Result target -->
+    <img id="out" src="https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=http%3A//www.ubersmake.com/qrririzer/"></img>
+    
+    <script type="text/javascript">    
+        $("#do").click(function() {
+            // Get the value in the text area
+            var toOut = $("#in").val();
+            
+            // Escape the text, so that it can be appended to the Google Chart URL
+            toOut = escape(toOut);
+            
+            // Get the QR Code image, and display it
+            $("#out").attr("src", "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chl=" + toOut);
+            $("#out").load();
+        });
+    </script>
+</body>
+</html>
